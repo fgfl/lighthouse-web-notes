@@ -52,6 +52,8 @@ Here's a summary of how they work and are used, in our words:
   - .then also returns the same promise
 - Whatever our .then callback returns, can be fed into a subsequent .then callback
   - However, if we return a promise, then it actually passes the results/resolution of the promise into the next callback
+
+![](./promises_whiteboard.jpg)
   
 ### 4. Promise creation (Maybe / Stretch)
 
