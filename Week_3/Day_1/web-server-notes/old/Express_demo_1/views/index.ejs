@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animals -- <%= animal %></title>
+        <script>
+            <% if (animal == 'dog') { %>
+                console.log("woohoo!")
+            <% } %>
+        </script>
+</head>
+<body>
+    <h1>I love animals!</h1>
+    <h2>Your animal is <%= animal %></h2>
+    <% for (let i = 0; i < 5; i++) {%>
+        <p>Woo!</p>
+    <% } %>
+    <%= [1, 2, 3].filter(num => num % 2) %>
+</body>
+</html>
