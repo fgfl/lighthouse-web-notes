@@ -1,5 +1,13 @@
-<h1>WELCOME TO BLOG TOWN</h1>
+<h1>WELCOME TO BLOG TOWN, <%= user %></h1>
 <a href="/blogs/new">NEW BLOG!</a>
+
+<form action="/login" method="POST">
+    <p>User</p>
+    <input name="user">
+    <p>Password</p>
+    <input name="password">
+    <input type="submit" value="Login"/>
+</form>
 <% for (let blogKey in blogs) { %>
     <div style="border: solid 2px red; border-radius: 4px;">
         <h3><%= blogs[blogKey].title %></h3>
