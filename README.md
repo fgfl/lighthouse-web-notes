@@ -25,3 +25,8 @@ This repositrory contains all of the notes taken by [Frederick](https://github.c
   * [Day 2](/Week_4/Day_2)
   * [Day 3](/Week_4/Day_3)
   * [Day 4](/Week_4/Day_4)
+* [Week 5](/Week_5)
+  * [Day 1](/Week_5/Day_1)
+  * [Day 2](/Week_5/Day_2)
+  * [Day 3](/Week_5/Day_3)
+  * [Day 4](/Week_5/Day_4)

@@ -1,0 +1,35 @@
+div {
+    min-height: 200px;
+    min-width: 200px;
+    padding: 100px;
+    font-size: 40px;
+    line-height: 38px;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.one{
+    color: greenyellow;
+}
+
+.goodlink .box {
+    background-color: darkred;
+}
+
+#special {
+    font-size: 500px;
+}
+
+.two{
+    background-color: cornflowerblue;
+    border: 2px solid pink;
+}
+
+.three{
+    background-color: blue;
+}
+
+.four{
+    background-color: darkblue;
+}
