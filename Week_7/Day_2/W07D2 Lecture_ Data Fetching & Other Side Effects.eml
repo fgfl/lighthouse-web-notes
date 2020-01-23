@@ -1,0 +1,400 @@
+Delivered-To: frederick.gfl@gmail.com
+Received: by 2002:a17:906:d150:0:0:0:0 with SMTP id br16csp4340762ejb;
+        Tue, 21 Jan 2020 12:13:20 -0800 (PST)
+X-Received: by 2002:a25:8241:: with SMTP id d1mr4697998ybn.394.1579637360651;
+        Tue, 21 Jan 2020 12:09:20 -0800 (PST)
+X-Google-Smtp-Source: APXvYqw+lCPv0t0VbGaKYsaUeQOVJ7jKnM3KdFdo4ZsPUVJYc7c2rNJyqLS6EbT1lcpGvcSYRNpK
+X-Received: by 2002:a25:8241:: with SMTP id d1mr4697934ybn.394.1579637359640;
+        Tue, 21 Jan 2020 12:09:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579637359; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dT0tG9jHJ1x6WJoPWjxXSTPRJbJrVVDH7IAZEHMRpwuDoP4GRPm1XTDVms4U30PqAT
+         1cwHiPZo+CfFsjpmdjXbsswCH7mc1VKNq0VJ62Y3Tz/hBxDrF2n+PYqtQBzW+Ewicb+k
+         o63pCPh+uEXHlnJ44mbhW21fiNbDroYYwirAQFcDBiSBEKCYz/v69elJtc2yK6hguTJx
+         SwvBNU5wTG2CChHYQ0dlycbSclzACJ6frS9Pjk/qKga6fFANkl3DzXHXVZf5DqALtsmX
+         Lf0NUMLEE6OSy5nIm6Q9SZwk03VRzsFSq34GUDHgH2/tikJY/iwkqqA49AOilbD0JpeO
+         oHjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:to:message-id:subject:sender:from:dkim-signature
+         :dkim-signature;
+        bh=63jZZkzPL8zTzzVbXEAQrWntx2JbpPVpTyDlFiwJo44=;
+        b=GmX9zSr8bE9jmu1uz9iBQzNDdMWvVfHlJoGtIAW0tyTwZwR0EDxYFlfrVfuVwDqe8G
+         031Brx8rb6AKaOaeJ1FxLVRs/aqswY3czRg4RfcebBiqea2BS0XnCH+qCuwZN4944gna
+         HUm50gki2fFjcnXr35y+OYNycy9wbWaWNoX51rCrRGM0bYybth0HKKaLQ21k7RRv2XWB
+         wIjYvgChJU+RQ0+JsptKGwAw3xIIUpgwuLXnYzzEi59F9KpAdpozJa23+DuTI5Aqg07j
+         g+sz+ra6y2hvo7U8Oo2Z/kpr+WsST9VQ73QvmChjCZDUZd66e0T15OUIa1SPcdx8Smy8
+         iWiw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail136-17.atl41.mandrillapp.com header.s=mandrill header.b=bMEQ73wW;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=gnV7fZwz;
+       spf=pass (google.com: domain of bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com designates 198.2.136.17 as permitted sender) smtp.mailfrom=bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com
+Return-Path: <bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com>
+Received: from mail136-17.atl41.mandrillapp.com (mail136-17.atl41.mandrillapp.com. [198.2.136.17])
+        by mx.google.com with ESMTPS id u188si793708ywe.40.2020.01.21.12.09.19
+        for <frederick.gfl@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 21 Jan 2020 12:09:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com designates 198.2.136.17 as permitted sender) client-ip=198.2.136.17;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail136-17.atl41.mandrillapp.com header.s=mandrill header.b=bMEQ73wW;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=gnV7fZwz;
+       spf=pass (google.com: domain of bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com designates 198.2.136.17 as permitted sender) smtp.mailfrom=bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mandrill; d=mail136-17.atl41.mandrillapp.com;
+ h=From:Sender:Subject:Message-Id:To:Date:MIME-Version:Content-Type; i=compass@mail136-17.atl41.mandrillapp.com;
+ bh=63jZZkzPL8zTzzVbXEAQrWntx2JbpPVpTyDlFiwJo44=;
+ b=bMEQ73wWq0MIWqoLNvQC0dmdI+t+6MhDAc7GND8Ghp7Ooh/RkI+FTu2TFVujYTtSQrYy58eoCuFW
+   pcKCJAnW+QJmEf+FnXXK7AAO0j5NxaYkgHFagCWN+bRZuYit+wYBlFj92aiRcCde3zQZezJXi3Dy
+   X0RY9yYacRtNNFbck9o=
+Received: from pmta04.mandrill.prod.atl01.rsglab.com (127.0.0.1) by mail136-17.atl41.mandrillapp.com id h4td6u1sb1ku for <frederick.gfl@gmail.com>; Tue, 21 Jan 2020 20:09:18 +0000 (envelope-from <bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com>)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1579637358; h=From : 
+ Sender : Subject : Message-Id : To : Date : MIME-Version : Content-Type 
+ : From : Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=63jZZkzPL8zTzzVbXEAQrWntx2JbpPVpTyDlFiwJo44=; 
+ b=gnV7fZwzhyjibLrCU8eV6LmzIAMlgtO+o00ugJFpDrgI2Sc0hzZzQ/4GuzzD12ghfV5FOb
+ 5kMyssyXx3lxDSImuOSgnBwHYf1QbOCKhGR83PghiOFI6ac0e+3us9T8q/w02TRWiHU4QS95
+ 6z9D15TGPnlRweSPhOTiixIHja/yQ=
+From: compass@lighthouselabs.ca
+Sender: compass@mail136-17.atl41.mandrillapp.com
+Subject: W07D2 Lecture: Data Fetching & Other Side Effects
+Return-Path: <bounce-md_30244704.5e275a6e.v1-45f7a3ef3ce04fa19166c4d536617e54@mandrillapp.com>
+Received: from [138.197.161.166] by mandrillapp.com id 45f7a3ef3ce04fa19166c4d536617e54; Tue, 21 Jan 2020 20:09:18 +0000
+Message-Id: <5e275a6b20a10_1562b1fd93d52c47958a@b7236555fc94.mail>
+To: apama.jamshidi@gmail.com, diwedi1112@gmail.com, edison.cy.yang@gmail.com, engr.tausifkhan@gmail.com, evybauer@gmail.com, frederick.gfl@gmail.com, kogantimounica@gmail.com, lea.linin@gmail.com, mklum88@gmail.com, pascalvanleeuwen604@gmail.com
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=30244704.45f7a3ef3ce04fa19166c4d536617e54
+X-Mandrill-User: md_30244704
+Date: Tue, 21 Jan 2020 20:09:18 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-_nR6E5EhRPyJsONWgjHUqw"
+
+--_av-_nR6E5EhRPyJsONWgjHUqw
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+--------------------------------------
+Data Fetching & Other Side Effects
+--------------------------------------
+
+Hey folks! thanks for coming to todays lecture.
+
+I have sent a poll in slack for the breakout. emoji if you are
+interested
+
+I referenced several articles in todays lecture. They are all
+provided at the very bottom
+
+******************************
+What problem does react solve?
+******************************
+
+It helps us build interactive uis
+
+see article: boiling react down to a few lines of jquery
+
+* react is a function of state, meaning: if you give react some
+state and props. It will give you back a ui tree based on that
+state.
+
+* always think about why something exists. It will inform you if
+it is the right tool for you and about why the library does
+things a certain way.
+
+************
+Hooks review
+************
+
+before react hooks were released there was class components.
+Hooks are just a new way to "hook" into existing react
+functionality
+
+There are 2 rules when using hooks
+
+Rule 1: Don=E2=80=99t call Hooks inside loops, conditions, or nested
+functions. Instead, always use Hooks at the top level of your
+React function.
+Rule 2: Only Call Hooks from React Functions.
+
+***************
+React Lifecycle
+***************
+
+* There are three phases. Mounting, Updating, Unmounting
+lifecycle
+
+**************
+Pure functions
+**************
+
+* A pure function is a function that has no side-effects and will
+produce the same return value given the same arguments
+* We want our functional react components to be pure.
+js
+const pure =3D (x, y) =3D> {
+return x + y
+}
+
+************
+Side Effects
+************
+
+Any operation which modifies the state of the computer or which
+interacts with the outside world is said to have a side effect
+
+* console.log
+* setting state
+* I/O
+* modifying the dom directly
+* setting up listeners
+
+*********
+UseEffect
+*********
+
+* React provides a hook for us to use when dealing with side
+effects in functional components
+* It runs after react updates the dom.
+* you can and should use multiple effect hooks to group logical
+operations together
+* it accepts a dependency array as the second argument that lets
+you specify when you want the effect to run
+
+-----------------------------------------------------------------
+- you can return a function that will run during the clean up
+phase
+-----------------------------------------------------------------
+
+gotcha
+- be careful you don't get trapped in an infinite loop by callin
+
+Here's a simple example
+```
+React: Give me the UI when the state is 0.
+Your component: Here=E2=80=99s the render result:
+
+You clicked 0 times
+
+Also remember to run this effect after you=E2=80=99re done: () =3D> {
+document.title =3D 'You clicked 0 times' }
+React: Sure. Updating the UI. Hey browser, I=E2=80=99m adding some stuff
+to the DOM.
+Browser: Cool, I painted it to the screen.
+React: OK, now I=E2=80=99m going to run the effect you gave me.
+
+Running () =3D> { document.title =3D 'You clicked 0 times' }.
+```
+
+remember: all functions within a component have the props, state,
+and surrounding scope for that functional call baked into them.
+Snapshot in time.
+
+*****
+SPA's
+*****
+
+* You need to run 2 apps. One server and one client
+
+* It is very common to create a JSON api for your server
+* we use a library called Axios to make our ajax requests
+
+********************************
+Compute data from existing state
+********************************
+
+* derive state from existing props and state whenever possible.
+We want to store the minimum amount of state possible
+
+How does react compare to Jquery:
+http://hackflow.com/blog/2015/03/08/boiling-react-down-to-few-lines-in-jque=
+ry/
+https://reactjs.org/docs/thinking-in-react.html
+
+In-depth blog post on useEffect:
+https://overreacted.io/a-complete-guide-to-useeffect/
+
+Get thinking in a react mind set:
+https://reactjs.org/docs/thinking-in-react.html
+
+Eric Leong
+
+
+--_av-_nR6E5EhRPyJsONWgjHUqw
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h2>Data Fetching &amp; Other Side Effects</h2>
+
+<p>Hey folks! thanks for coming to todays lecture.</p>
+
+<p>I have sent a poll in slack for the breakout. emoji if you are intereste=
+d</p>
+
+<p>I referenced several articles in todays lecture. They are all provided a=
+t the very bottom</p>
+
+<h1>What problem does react solve?</h1>
+<blockquote>
+<p>It helps us build interactive uis</p>
+</blockquote>
+<p>see article: <em>boiling react down to a few lines of jquery</em></p>
+
+<ul>
+<li><p>react is a function of state, meaning: if you give react some state =
+and props. It will give you back a ui tree based on that state.</p></li>
+<li><p>always think about why something exists. It will inform you if it is=
+ the right tool for you and about why the library does things a certain way=
+.</p></li>
+</ul>
+
+<h1>Hooks review</h1>
+<blockquote>
+<p>before react hooks were released there was class components. Hooks are j=
+ust a new way to "hook" into existing react functionality</p>
+</blockquote>
+<p>There are 2 rules when using hooks</p>
+
+<p>Rule 1: Don=E2=80=99t call Hooks inside loops, conditions, or nested fun=
+ctions. Instead, always use Hooks at the top level of your React function.
+Rule 2: Only Call Hooks from React Functions.</p>
+
+<h1>React Lifecycle</h1>
+
+<ul>
+<li>There are three phases. Mounting, Updating, Unmounting
+<img src=3D"https://miro.medium.com/max/3348/1*cEWErpe-oY-_S1dOaT1NtA.jpeg"=
+ alt=3D"lifecycle">
+</li>
+</ul>
+
+<h1>Pure functions</h1>
+
+<ul>
+<li>A pure function is a function that has no side-effects and will produce=
+ the same return value given the same arguments</li>
+<li>We want our functional react components to be pure.
+<code>js
+const pure =3D (x, y) =3D&gt; {
+return x + y
+}
+</code>
+</li>
+</ul>
+
+<h1>Side Effects</h1>
+
+<p>Any operation which modifies the state of the computer or which interact=
+s with the outside world is said to have a side effect</p>
+
+<ul>
+<li>console.log</li>
+<li>setting state</li>
+<li>I/O</li>
+<li>modifying the dom directly</li>
+<li>setting up listeners</li>
+</ul>
+
+<h1>UseEffect</h1>
+
+<ul>
+<li>React provides a hook for us to use when dealing with side effects in f=
+unctional components</li>
+<li>It runs after react updates the dom.</li>
+<li>you can and should use multiple effect hooks to group logical operation=
+s together</li>
+<li>it accepts a dependency array as the second argument that lets you spec=
+ify when you want the effect to run</li>
+</ul>
+
+<h2>- you can return a function that will run during the clean up phase</h2=
+>
+
+<p>gotcha
+- be careful you don't get trapped in an infinite loop by callin</p>
+
+<p>Here's a simple example 
+```
+React: Give me the UI when the state is 0.
+Your component: Here=E2=80=99s the render result:</p>
+<blockquote>
+<p>You clicked 0 times</p>
+</blockquote>
+<p>Also remember to run this effect after you=E2=80=99re done: () =3D&gt; {=
+ document.title =3D 'You clicked 0 times' }
+React: Sure. Updating the UI. Hey browser, I=E2=80=99m adding some stuff to=
+ the DOM.
+Browser: Cool, I painted it to the screen.
+React: OK, now I=E2=80=99m going to run the effect you gave me.</p>
+
+<p>Running () =3D&gt; { document.title =3D 'You clicked 0 times' }.
+```</p>
+
+<p>remember: all functions within a component have the props, state, and su=
+rrounding scope for that functional call baked into them. Snapshot in time.=
+</p>
+
+<h1>SPA's</h1>
+
+<ul>
+<li>You need to run 2 apps. One <code>server</code> and one <code>client</c=
+ode>
+</li>
+<li>It is very common to create a JSON api for your server</li>
+<li>we use a library called Axios to make our ajax requests</li>
+</ul>
+
+<h1>Compute data from existing state</h1>
+
+<ul>
+<li>derive state from existing props and state whenever possible. We want t=
+o store the minimum amount of state possible</li>
+</ul>
+
+<p>How does react compare to Jquery: <a href=3D"https://mandrillapp.com/tra=
+ck/click/30244704/hackflow.com?p=3DeyJzIjoieVEtNWlValJaRGtKbXVRMVM0Z2UweGZD=
+aXFnIiwidiI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwOlx=
+cXC9cXFwvaGFja2Zsb3cuY29tXFxcL2Jsb2dcXFwvMjAxNVxcXC8wM1xcXC8wOFxcXC9ib2lsaW=
+5nLXJlYWN0LWRvd24tdG8tZmV3LWxpbmVzLWluLWpxdWVyeVxcXC9cIixcImlkXCI6XCI0NWY3Y=
+TNlZjNjZTA0ZmExOTE2NmM0ZDUzNjYxN2U1NFwiLFwidXJsX2lkc1wiOltcIjIyZDhhMmUyZGJi=
+YTQwMmE5NDE2YjgzMjM4MGE2OWMyNmIzMzhmMmVcIl19In0" target=3D"_blank">http://h=
+ackflow.com/blog/2015/03/08/boiling-react-down-to-few-lines-in-jquery/</a>
+<a href=3D"https://mandrillapp.com/track/click/30244704/reactjs.org?p=3DeyJ=
+zIjoiZmFncnUxeEpQSndRRGU4QWI1OUppQ25mR3R3IiwidiI6MSwicCI6IntcInVcIjozMDI0ND=
+cwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3JlYWN0anMub3JnXFxcL2RvY3NcX=
+FwvdGhpbmtpbmctaW4tcmVhY3QuaHRtbFwiLFwiaWRcIjpcIjQ1ZjdhM2VmM2NlMDRmYTE5MTY2=
+YzRkNTM2NjE3ZTU0XCIsXCJ1cmxfaWRzXCI6W1wiODFkODMyYzgyZTgyNTY2YWI3N2RmOWRkMjd=
+iNGRkZGVkZTU2MzliMFwiXX0ifQ" target=3D"_blank">https://reactjs.org/docs/thi=
+nking-in-react.html</a></p>
+
+<p>In-depth blog post on useEffect: <a href=3D"https://mandrillapp.com/trac=
+k/click/30244704/overreacted.io?p=3DeyJzIjoiamNfYUhWUlNkcjF2cFRLUUtMaDl0R21=
+UWHJvIiwidiI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwcz=
+pcXFwvXFxcL292ZXJyZWFjdGVkLmlvXFxcL2EtY29tcGxldGUtZ3VpZGUtdG8tdXNlZWZmZWN0X=
+FxcL1wiLFwiaWRcIjpcIjQ1ZjdhM2VmM2NlMDRmYTE5MTY2YzRkNTM2NjE3ZTU0XCIsXCJ1cmxf=
+aWRzXCI6W1wiMmI4MTlkODdlNWExZWZlNWQ0ZDc1ZjNhNmE1OGI2ZTFhMzllMGMzMFwiXX0ifQ"=
+ target=3D"_blank">https://overreacted.io/a-complete-guide-to-useeffect/</a=
+></p>
+
+<p>Get thinking in a react mind set: <a href=3D"https://mandrillapp.com/tra=
+ck/click/30244704/reactjs.org?p=3DeyJzIjoiZmFncnUxeEpQSndRRGU4QWI1OUppQ25mR=
+3R3IiwidiI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpc=
+XFwvXFxcL3JlYWN0anMub3JnXFxcL2RvY3NcXFwvdGhpbmtpbmctaW4tcmVhY3QuaHRtbFwiLFw=
+iaWRcIjpcIjQ1ZjdhM2VmM2NlMDRmYTE5MTY2YzRkNTM2NjE3ZTU0XCIsXCJ1cmxfaWRzXCI6W1=
+wiODFkODMyYzgyZTgyNTY2YWI3N2RmOWRkMjdiNGRkZGVkZTU2MzliMFwiXX0ifQ" target=3D=
+"_blank">https://reactjs.org/docs/thinking-in-react.html</a></p>
+
+
+<hr>
+
+<p>
+  Eric Leong
+</p>
+<img src=3D"https://mandrillapp.com/track/open.php?u=3D30244704&id=3D45f7a3=
+ef3ce04fa19166c4d536617e54" height=3D"1" width=3D"1"></body></html>
+
+
+
+--_av-_nR6E5EhRPyJsONWgjHUqw--
+
