@@ -1,0 +1,747 @@
+Delivered-To: frederick.gfl@gmail.com
+Received: by 2002:a17:906:d150:0:0:0:0 with SMTP id br16csp1257993ejb;
+        Thu, 23 Jan 2020 12:24:23 -0800 (PST)
+X-Google-Smtp-Source: APXvYqwHfBvzgVVroHv0DW49Zd+cz/6debf5i7sAlRvzgJw9jVTEto4RmusevfLX5M7p1+fdEoLy
+X-Received: by 2002:a0d:c947:: with SMTP id l68mr13633495ywd.197.1579811063200;
+        Thu, 23 Jan 2020 12:24:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579811063; cv=none;
+        d=google.com; s=arc-20160816;
+        b=eAPfKcUmd+LNuaYv9Be1zVsSzJUWkPX6q5gidt82ql4cMfZtn+bwtyVCg+69+otJ4E
+         WexlusRKjqPPLUwbcnQ8/nbODDf0dBRIvZZHRdl6EHa549Xs2EBKqcCj1CwY7Eh6mMWh
+         xqFuhz+3qtbD0hJ5PFShBKc4UJPkRe6hphE2+4rPFt4+dolZUUeC2clgAl+75c+mZM8l
+         qHwoYjhI+dBwui7HjOUsfqnZuuyeZGUi5E6pH6bUz9oXfIBZnVSkgEYrtbsNyACrv7qR
+         Eu+Q/QQTKOaIXg5wAZRuim4f7SkQ3VN6ykM8t3WSP40Kk8W5dRth7jSQkvR87QQQkQ9e
+         NIDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:to:message-id:subject:sender:from:dkim-signature
+         :dkim-signature;
+        bh=DrgB95+XQoS+mHvyeDNyeMV78auxDcrQqVm7fLDawFQ=;
+        b=IiDe2My3bex2jFfMJzqQclcsXkzj8YUGB2TCR0O92Pa8HuJpCxDgF66yUzLrCroQR8
+         V9uiygELytn/2dURF3HfLCI7rlXGBm9T4zXKOEzAPmFjXYFLfmCLpWGnAeKkamsnwp83
+         iepVkks/vqyKCWrNaMYaNOmlzee8utC9JoS2CpDPH+o11bHaCUMqa4Mll+mIk5CkhnCA
+         NIXEVs/ZJK7UMXu0cD7Wg5EEWYz4XlceY/YUiIW4QYR+699MP1+Nr0Eln+oFek/QGZi5
+         +iHs1XuVws5wJPWymBxlXQqP+SOKX5BGRnmDQZKSM41LK+wNNhDMJ/TLMRt79ALSZ9vm
+         SPHQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail13.wdc04.mandrillapp.com header.s=mandrill header.b=TvU0rA8Y;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=od7k+aZL;
+       spf=pass (google.com: domain of bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com designates 205.201.139.13 as permitted sender) smtp.mailfrom=bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com
+Return-Path: <bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com>
+Received: from mail13.wdc04.mandrillapp.com (mail13.wdc04.mandrillapp.com. [205.201.139.13])
+        by mx.google.com with ESMTPS id a65si1780697ywc.285.2020.01.23.12.24.22
+        for <frederick.gfl@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 23 Jan 2020 12:24:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com designates 205.201.139.13 as permitted sender) client-ip=205.201.139.13;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail13.wdc04.mandrillapp.com header.s=mandrill header.b=TvU0rA8Y;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=od7k+aZL;
+       spf=pass (google.com: domain of bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com designates 205.201.139.13 as permitted sender) smtp.mailfrom=bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mandrill; d=mail13.wdc04.mandrillapp.com;
+ h=From:Sender:Subject:Message-Id:To:Date:MIME-Version:Content-Type; i=compass@mail13.wdc04.mandrillapp.com;
+ bh=DrgB95+XQoS+mHvyeDNyeMV78auxDcrQqVm7fLDawFQ=;
+ b=TvU0rA8Yc63E6FQsgfu2oqoQMDwC6lnhofIl7/ifXaA3ePy+vCUOdLGcjBWQJxPxytREuIvEXTON
+   0bDzYpp93To5Sd76qoR16MEdE7cgCDOpWQ8dkPzSnZgaOhDgvpIov4GMLWuTVHfpjiJdJm78Ko1r
+   fQNdwmSGo75upqQ+oQw=
+Received: from pmta08.mandrill.prod.suw01.rsglab.com (127.0.0.1) by mail13.wdc04.mandrillapp.com id h580fe1jvmgm for <frederick.gfl@gmail.com>; Thu, 23 Jan 2020 20:24:20 +0000 (envelope-from <bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com>)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1579811060; h=From : 
+ Sender : Subject : Message-Id : To : Date : MIME-Version : Content-Type 
+ : From : Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=DrgB95+XQoS+mHvyeDNyeMV78auxDcrQqVm7fLDawFQ=; 
+ b=od7k+aZL5PMgaa1I77jPwMBpJEkxoZC4I9gs5NFRrJXbav0X9idpjyxW9kjCplvzkHw+6t
+ pWuGQq+x9F9XV9XsSJIWdto/sn0L2YvAbTo7Teh3lMVSI7vZ4yGnmfGfjwZ1m60LcgnRfssr
+ m9tdBhOAgNkB7sn7e4kpRZ9/ZWqT4=
+From: compass@lighthouselabs.ca
+Sender: compass@mail13.wdc04.mandrillapp.com
+Subject: W07D4 Lecture: Complex State Management
+Return-Path: <bounce-md_30244704.5e2a00f4.v1-3d1db2be929f4f9d8100c6873eb36632@mandrillapp.com>
+Received: from [138.197.161.166] by mandrillapp.com id 3d1db2be929f4f9d8100c6873eb36632; Thu, 23 Jan 2020 20:24:20 +0000
+Message-Id: <5e2a00f1739d7_1522b1fd8bcf61042120@b7236555fc94.mail>
+To: apama.jamshidi@gmail.com, diwedi1112@gmail.com, edison.cy.yang@gmail.com, engr.tausifkhan@gmail.com, evybauer@gmail.com, frederick.gfl@gmail.com, kogantimounica@gmail.com, lea.linin@gmail.com, mklum88@gmail.com, pascalvanleeuwen604@gmail.com
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=30244704.3d1db2be929f4f9d8100c6873eb36632
+X-Mandrill-User: md_30244704
+Date: Thu, 23 Jan 2020 20:24:20 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-E5XtyxUStCLK-R8qVkwEeA"
+
+--_av-E5XtyxUStCLK-R8qVkwEeA
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+------------------------
+Complex State Management
+------------------------
+
+*******************************************
+Complex State Management  & Web Sockets
+*******************************************
+
+reducer
+
+Our slick login form can be found here 
+( https://codesandbox.io/s/wispy-tree-hrv4i )
+
+The Reducer counter can be found here 
+( https://codesandbox.io/s/sweet-raman-z5ho8 )
+
+LoudChat can be found here ( https://github.com/tborsa/loudchat )
+
+Notes and code can be found here 
+( https://github.com/tborsa/lectures/tree/master/week7/day4 )
+
+I have also included the information on sockets if you wanted to
+learn more about them.
+
+*******
+Topics=F0=9F=93=A2
+*******
+
+* Reducers
+
+* Pure Functions
+* Static & Type Reducers
+* Reducer Hook
+
+* Websockets
+
+********
+Reducers
+********
+
+reducer
+
+A programming pattern to reduce data structures down.
+
+Reducers are pure functions, meaning their output is determined
+solely by their input values.
+
+We have probably used a reducer pattern in code that we have
+written up to this point.
+- For loop to turn an array into a sum
+
+There is a built in reduce pattern with arrays in JavaScript.
+array.prototype.reduce
+
+let arr =3D [1,2,3,4];
+let res =3D arr.reduce((accumulator, value)=3D>{accumulator+value},
+0)
+
+The accumulator represents the value being carried over from each
+loop of the reducer.
+
+Value is the current element from the array.
+
+*********************
+Complexity to reducer
+*********************
+
+By using nested objects within an array you can be more precise
+on how you are consolidating the input data.
+
+[
+{ type: "add", value: 3 },
+{ type: "subtract", value: 5},
+{ type: "add", value: 7}
+].reduce((state, action) =3D> {
+if(action.type =3D=3D=3D "add") {
+return state + action.value;
+}
+if(action.type =3D=3D=3D "subtract") {
+return state - action.value;
+}
+}, 0);
+
+With this pattern we are not restricted to the same behavior for
+each element in the array.
+
+**********************
+Why is this important?
+**********************
+
+Reducers are helpful for modifying data in general, but are
+particularly helpful with React.
+
+So far we have used the hook useState for setting state data.
+(Data that our components depend on)
+
+Another hook that we can use to manage state is  useReducer
+useReducer is similar to useState but with reducers.
+
+**********
+useReducer
+**********
+
+useReducer takes two parameters, a reducer function and the
+initial state to use.
+It outputs the current value of the state, and a dispatcher.
+
+The dispatcher calls the reducer function with the current state
+and the action passed by the user.
+
+const reduceUsers =3D (state, action) {
+if(action.type=3D=3D=3D'add'){
+return state + action.value;
+}else if(action.type =3D=3D=3D 'subtract'){
+return state - action.value;
+}else if(action.type =3D=3D=3D 'reset'){
+return 0;
+}else{
+return state;
+}
+}
+
+let [count,dispatchCount] =3D useReducer(reduceCount, 0);
+
+dispatchCount({type: 'subtract', value: 6});
+
+demo counter
+
+******************
+useReducer Contd..
+******************
+
+useReducer allows us to modify and update our state in more
+complex and manageable ways.
+We can define state changes as specific actions (add, subtract,
+reset)
+Especially if your state is complex (ie. objects, arrays)
+useReducer makes it easier to handle.
+
+We have some options on how we create the reducer part of use
+reducer.
+
+if/else
+-------
+
+const reduceUsers =3D (state, action) {
+if(action.type=3D=3D=3D'add'){
+return state + action.value;
+}else if(action.type =3D=3D=3D 'subtract'){
+return state - action.value;
+}else if(action.type =3D=3D=3D 'reset'){
+return 0;
+}else{
+return state;
+}
+}
+
+switch
+------
+
+const reduceUsers =3D (state, action)=3D> {
+switch(action.type){
+case 'add':
+return state + action.value;
+break;
+case 'subtract':
+return state - action.value;
+break;
+case 'reset':
+return 0;
+break;
+default:
+return state;
+}
+}
+
+lookup
+------
+
+const userLookup =3D {
+add: (state, value) =3D> {
+return state + value;
+},
+subtract: (state, value) =3D> {
+return state - value;
+},
+reste: (state, value) =3D> {
+return 0;
+}
+}
+const reduceUsers =3D (state, action) =3D> {
+return userLookup[action.type](state, action.value)||state;
+}
+
+What are the advantages of each?
+
+**********
+WebSockets
+**********
+
+sockets
+
+WebSockets is a web protocol that allows for real time
+communication.
+
+Realtime?
+
+Examples:
+
+http://powerline.io/
+
+http://web-demo.adaptivecluster.com/
+
+******************
+History of Sockets
+******************
+
+history
+
+Websockets was created out of a want/need for open real-time
+communication.
+
+* 1995 browser wars netscape vs explorer
+
+* 1999 Birth of AJAX
+* There was no real notion of allowing a server to contact the
+user proactively
+
+* long polling
+Open an XMLHttpRequest connection and leave it open to allow for
+ongoing communication.
+
+* No clear formatting on data
+* tricky and has complications
+
+* 2008 Websockets were coined and work began on bidirectional
+real time communication
+
+* The idea made it into a W3C standards draft
+
+* 2010 Google chrome shipped with full support of the new
+Websockets protocol
+
+* 2011 RFC 6455 =E2=80=93 The WebSocket Protocol =E2=80=93 was published
+
+* Today all major browsers support websockets
+
+Deep Dive ( https://www.ably.io/concepts/websockets )
+
+************************
+Websockets as a Protocol
+************************
+
+Websockets are full duplex communication over a single TCP
+connection.
+Websocket protocol is distinct from http but is compatible with
+it.
+
+Client
+
+websockets as a protocol is supported by modern browsers. As such
+there is websocket implementation built into the client. (no
+libraries required!)
+
+* WebSocket
+* WebSocket protocol is natively supported by browsers
+* Built in client api
+* Socket.io
+* Wraps WebSocket ApI with some additional features
+
+Server
+
+Node does not have a native implementation of websockest so a
+library is required. There are many options for socket servers.
+
+* websockets
+
+* Barebones almost pure JS implementation of WebSocket protocol
+* client uses native websocket object
+
+* ws
+
+* "ws is a simple to use, blazing fast, and thoroughly tested
+WebSocket client and server implementation."
+* client uses native websocket object
+
+* socket io
+
+* client uses socket.io client
+* additional features + fallback options
+
+* parses incoming data to JSON
+* message types
+
+********************
+React and Websockets
+********************
+
+//create socket connection
+const socket =3D new WebSocket('ws://localhost:8080');
+//listen to socket events
+socket.onopen =3D ()=3D>{
+console.log('socket successfully connected');
+};
+socket.onmessage =3D (message)=3D>{
+console.log('Message Received: ', message);
+};
+//send socket messages
+socket.send('hello socket!');
+
+Travis Borsa
+
+
+--_av-E5XtyxUStCLK-R8qVkwEeA
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h2>Complex State Management</h2>
+
+<h1>Complex State Management  &amp; <del>Web Sockets</del>
+</h1>
+
+<p><img src=3D"https://raw.githubusercontent.com/tborsa/lectures/master/wee=
+k7/day4/assets/chat.gif" alt=3D"reducer"></p>
+
+<p>Our slick login form can be found <a href=3D"https://mandrillapp.com/tra=
+ck/click/30244704/codesandbox.io?p=3DeyJzIjoiN2FxM0RkMW1oTkFiQVZBbkJSSmRPVT=
+BaOXhZIiwidiI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwc=
+zpcXFwvXFxcL2NvZGVzYW5kYm94LmlvXFxcL3NcXFwvd2lzcHktdHJlZS1ocnY0aVwiLFwiaWRc=
+IjpcIjNkMWRiMmJlOTI5ZjRmOWQ4MTAwYzY4NzNlYjM2NjMyXCIsXCJ1cmxfaWRzXCI6W1wiOWZ=
+hYTJhODc4ZTRhZWMzMDExODIxOWQ4Y2E1M2Y0OTZiYzY5MGM1NlwiXX0ifQ" target=3D"_bla=
+nk">here</a></p>
+
+<p>The Reducer counter can be found <a href=3D"https://mandrillapp.com/trac=
+k/click/30244704/codesandbox.io?p=3DeyJzIjoiM29UU3Q4QUR6b3diNDYwTGNZWmp2YTl=
+IUWxFIiwidiI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwcz=
+pcXFwvXFxcL2NvZGVzYW5kYm94LmlvXFxcL3NcXFwvc3dlZXQtcmFtYW4tejVobzhcIixcImlkX=
+CI6XCIzZDFkYjJiZTkyOWY0ZjlkODEwMGM2ODczZWIzNjYzMlwiLFwidXJsX2lkc1wiOltcImNl=
+NTFmYjU5OGU3OGI4MmFkZGNlY2JjNmY5NDExODgwMjllNGM5NDdcIl19In0" target=3D"_bla=
+nk">here</a></p>
+
+<p>LoudChat can be found <a href=3D"https://mandrillapp.com/track/click/302=
+44704/github.com?p=3DeyJzIjoid003QnB5SU1yUUU5RC1mQWNhREdzOEhWdTRrIiwidiI6MS=
+wicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2dpd=
+Gh1Yi5jb21cXFwvdGJvcnNhXFxcL2xvdWRjaGF0XCIsXCJpZFwiOlwiM2QxZGIyYmU5MjlmNGY5=
+ZDgxMDBjNjg3M2ViMzY2MzJcIixcInVybF9pZHNcIjpbXCI2ZDE1ZWE5YzYyNmRiMTVjYjJmNTh=
+iNGM1YTAzMTA2ZWU2ZjIwMjVkXCJdfSJ9" target=3D"_blank">here</a></p>
+
+<p>Notes and code can be found <a href=3D"https://mandrillapp.com/track/cli=
+ck/30244704/github.com?p=3DeyJzIjoiTHBKLWJCcHZmdmxmaTFNWEphUm5LMVEyZmIwIiwi=
+diI6MSwicCI6IntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFx=
+cL2dpdGh1Yi5jb21cXFwvdGJvcnNhXFxcL2xlY3R1cmVzXFxcL3RyZWVcXFwvbWFzdGVyXFxcL3=
+dlZWs3XFxcL2RheTRcIixcImlkXCI6XCIzZDFkYjJiZTkyOWY0ZjlkODEwMGM2ODczZWIzNjYzM=
+lwiLFwidXJsX2lkc1wiOltcImVmZTU1OTYxZThlYjI2YWUwNDFmNGQ5NTg2ZTY1ODdkZGU0MjM5=
+MTlcIl19In0" target=3D"_blank">here</a></p>
+
+<p>I have also included the information on sockets if you wanted to learn m=
+ore about them.</p>
+
+<h1>Topics=F0=9F=93=A2</h1>
+
+<ul>
+<li>Reducers 
+
+<ul>
+<li>Pure Functions </li>
+<li>Static &amp; Type Reducers </li>
+<li>Reducer Hook </li>
+</ul>
+</li>
+<li>Websockets </li>
+</ul>
+
+<h1>Reducers</h1>
+
+<p><img src=3D"https://raw.githubusercontent.com/tborsa/lectures/master/wee=
+k7/day4/assets/blender.gif" alt=3D"reducer"></p>
+
+<p>A programming pattern to reduce data structures down.</p>
+
+<p>Reducers are pure functions, meaning their output is determined solely b=
+y their input values.</p>
+
+<p>We have probably used a reducer pattern in code that we have written up =
+to this point. 
+- For loop to turn an array into a sum</p>
+
+<p>There is a built in reduce pattern with arrays in JavaScript. 
+array.prototype.reduce</p>
+<pre><code class=3D"language-javascript allow-select">let arr =3D [1,2,3,4]=
+;
+let res =3D arr.reduce((accumulator, value)=3D&gt;{accumulator+value}, 0)
+</code></pre>
+<p>The accumulator represents the value being carried over from each loop o=
+f the reducer.<br>
+Value is the current element from the array.</p>
+
+<h1>Complexity to reducer</h1>
+
+<p>By using nested objects within an array you can be more precise on how y=
+ou are consolidating the input data. </p>
+<pre><code class=3D"language-js allow-select">[
+ { type: "add", value: 3 },
+ { type: "subtract", value: 5},
+ { type: "add", value: 7}
+].reduce((state, action) =3D&gt; {
+ if(action.type =3D=3D=3D "add") {
+   return state + action.value;
+ }
+ if(action.type =3D=3D=3D "subtract") {
+   return state - action.value;
+ }
+}, 0);
+</code></pre>
+<p>With this pattern we are not restricted to the same behavior for each el=
+ement in the array.</p>
+
+<h1>Why is this important?</h1>
+
+<p>Reducers are helpful for modifying data in general, but are particularly=
+ helpful with React.</p>
+
+<p>So far we have used the hook <strong>useState</strong> for setting state=
+ data.
+(Data that our components depend on)</p>
+
+<p>Another hook that we can use to manage state is  <strong>useReducer</str=
+ong>
+useReducer is similar to useState but with reducers. </p>
+
+<h1>useReducer</h1>
+
+<p>useReducer takes two parameters, a reducer function and the initial stat=
+e to use.
+It outputs the current value of the state, and a dispatcher.</p>
+
+<p>The dispatcher calls the reducer function with the current state and the=
+ action passed by the user.</p>
+<pre><code class=3D"language-javascript allow-select">
+const reduceUsers =3D (state, action) {
+ if(action.type=3D=3D=3D'add'){
+   return state + action.value;
+ }else if(action.type =3D=3D=3D 'subtract'){
+   return state - action.value;
+ }else if(action.type =3D=3D=3D 'reset'){
+   return 0;
+ }else{
+   return state;
+ }
+}
+
+let [count,dispatchCount] =3D useReducer(reduceCount, 0);
+
+dispatchCount({type: 'subtract', value: 6});
+
+</code></pre>
+<p>demo counter</p>
+
+<h1>useReducer Contd..</h1>
+
+<p>useReducer allows us to modify and update our state in more complex and =
+manageable ways.
+We can define state changes as specific actions (add, subtract, reset)
+Especially if your state is complex (ie. objects, arrays) useReducer makes =
+it easier to handle.</p>
+
+<p>We have some options on how we create the reducer part of use reducer.</=
+p>
+
+<h3>if/else</h3>
+<pre><code class=3D"language-javascript allow-select">const reduceUsers =3D=
+ (state, action) {
+ if(action.type=3D=3D=3D'add'){
+   return state + action.value;
+ }else if(action.type =3D=3D=3D 'subtract'){
+   return state - action.value;
+ }else if(action.type =3D=3D=3D 'reset'){
+   return 0;
+ }else{
+   return state;
+ }
+}
+</code></pre>
+<h3>switch</h3>
+<pre><code class=3D"language-javascript allow-select">const reduceUsers =3D=
+ (state, action)=3D&gt; {
+ switch(action.type){
+   case 'add':
+     return state + action.value;
+   break;
+   case 'subtract':
+     return state - action.value;
+   break;
+   case 'reset':
+     return 0;
+   break;
+   default:
+     return state;
+ }
+}
+</code></pre>
+<h3>lookup</h3>
+<pre><code class=3D"language-javascript allow-select">const userLookup =3D =
+{
+ add: (state, value) =3D&gt; {
+   return state + value;
+ },
+ subtract: (state, value) =3D&gt; {
+   return state - value;
+ },
+ reste: (state, value) =3D&gt; {
+   return 0;
+ }
+}
+const reduceUsers =3D (state, action) =3D&gt; {
+ return userLookup[action.type](state, action.value)||state;
+}
+</code></pre>
+<p>What are the advantages of each?</p>
+
+<h1>WebSockets</h1>
+
+<p><img src=3D"https://raw.githubusercontent.com/tborsa/lectures/master/wee=
+k7/day4/assets/socket.gif" alt=3D"sockets"></p>
+
+<p>WebSockets is a web protocol that allows for real time communication.</p=
+>
+
+<p>Realtime?</p>
+
+<p>Examples:<br>
+<a href=3D"https://mandrillapp.com/track/click/30244704/powerline.io?p=3Dey=
+JzIjoidjNRTU9QRzdFMEp6UzNPalBXOTBUZlRhWFlrIiwidiI6MSwicCI6IntcInVcIjozMDI0N=
+DcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwOlxcXC9cXFwvcG93ZXJsaW5lLmlvXFxcL1wiLFwi=
+aWRcIjpcIjNkMWRiMmJlOTI5ZjRmOWQ4MTAwYzY4NzNlYjM2NjMyXCIsXCJ1cmxfaWRzXCI6W1w=
+iN2U3NTQ4ODFiYjY5YWY0Y2E1YzQwMGI5MDZjY2ZkZGZkODk3NjNkZVwiXX0ifQ" target=3D"=
+_blank">http://powerline.io/</a><br>
+<a href=3D"https://mandrillapp.com/track/click/30244704/web-demo.adaptivecl=
+uster.com?p=3DeyJzIjoiZnpJcG1pUmdINHZKNWtCWmVlOGlGSHdHUlNNIiwidiI6MSwicCI6I=
+ntcInVcIjozMDI0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwOlxcXC9cXFwvd2ViLWRlbW8u=
+YWRhcHRpdmVjbHVzdGVyLmNvbVxcXC9cIixcImlkXCI6XCIzZDFkYjJiZTkyOWY0ZjlkODEwMGM=
+2ODczZWIzNjYzMlwiLFwidXJsX2lkc1wiOltcIjM4MGQ3YTg1ODBhMTY3YTU0OGJjMTZhM2VlNm=
+ZjMDY2NjE3ZDExNjVcIl19In0" target=3D"_blank">http://web-demo.adaptivecluste=
+r.com/</a> </p>
+
+<h1>History of Sockets</h1>
+
+<p><img src=3D"https://raw.githubusercontent.com/tborsa/LighthouseLabs/mast=
+er/lectures/Week6/Day4/Lecture/assets/history.jpg" alt=3D"history"></p>
+
+<p>Websockets was created out of a want/need for open real-time communicati=
+on.</p>
+
+<ul>
+<li>
+<p>1995 browser wars netscape vs explorer </p>
+
+<ul>
+<li>1999 Birth of AJAX </li>
+<li>There was no real notion of allowing a server to contact the user proac=
+tively </li>
+</ul>
+</li>
+<li>
+<p>long polling 
+Open an XMLHttpRequest connection and leave it open to allow for ongoing co=
+mmunication. </p>
+
+<ul>
+<li>No clear formatting on data </li>
+<li>tricky and has complications </li>
+</ul>
+</li>
+<li><p>2008 Websockets were coined and work began on bidirectional real tim=
+e communication </p></li>
+<li><p>The idea made it into a W3C standards draft </p></li>
+<li><p>2010 Google chrome shipped with full support of the new Websockets p=
+rotocol </p></li>
+<li><p>2011 RFC 6455 =E2=80=93 The WebSocket Protocol =E2=80=93 was publish=
+ed </p></li>
+<li><p>Today all major browsers support websockets </p></li>
+</ul>
+
+<p><a href=3D"https://mandrillapp.com/track/click/30244704/www.ably.io?p=3D=
+eyJzIjoiSlJhS1VlYnpGOEpHcFNFNEQxOWtIcTVrNE5rIiwidiI6MSwicCI6IntcInVcIjozMDI=
+0NDcwNCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5hYmx5LmlvXFxcL2Nvbm=
+NlcHRzXFxcL3dlYnNvY2tldHNcIixcImlkXCI6XCIzZDFkYjJiZTkyOWY0ZjlkODEwMGM2ODczZ=
+WIzNjYzMlwiLFwidXJsX2lkc1wiOltcImRjYmY3YjY5YzcyZjA3OTQyYzg2OTJmYWYwNmQ2MGUy=
+YmU5YTQxZmJcIl19In0" target=3D"_blank">Deep Dive</a></p>
+
+<h1>Websockets as a Protocol</h1>
+
+<p>Websockets are full duplex communication over a single TCP connection.
+Websocket protocol is distinct from http but is compatible with it.</p>
+
+<p><strong>Client</strong></p>
+
+<p>websockets as a protocol is supported by modern browsers. As such there =
+is websocket implementation built into the client. (no libraries required!)=
+</p>
+
+<ul>
+<li>WebSocket </li>
+<li>WebSocket protocol is natively supported by browsers </li>
+<li>Built in client api </li>
+<li>Socket.io </li>
+<li>Wraps WebSocket ApI with some additional features </li>
+</ul>
+
+<p><strong>Server</strong></p>
+
+<p>Node does not have a native implementation of websockest so a library is=
+ required. There are many options for socket servers.</p>
+
+<ul>
+<li>
+<p>websockets </p>
+
+<ul>
+<li>Barebones almost pure JS implementation of WebSocket protocol </li>
+<li>client uses native websocket object </li>
+</ul>
+</li>
+<li>
+<p>ws</p>
+
+<ul>
+<li>"ws is a simple to use, blazing fast, and thoroughly tested WebSocket c=
+lient and server implementation." </li>
+<li>client uses native websocket object </li>
+</ul>
+</li>
+<li>
+<p>socket io </p>
+
+<ul>
+<li>client uses socket.io client </li>
+<li>additional features + fallback options<br>
+</li>
+<li>parses incoming data to JSON </li>
+<li>message types </li>
+</ul>
+</li>
+</ul>
+
+<h1>React and Websockets</h1>
+<pre><code class=3D"language-javascript allow-select">//create socket conne=
+ction
+const socket =3D new WebSocket('ws://localhost:8080');
+//listen to socket events
+socket.onopen =3D ()=3D&gt;{
+ console.log('socket successfully connected');
+};
+socket.onmessage =3D (message)=3D&gt;{
+ console.log('Message Received: ', message);
+};
+//send socket messages
+socket.send('hello socket!');
+</code></pre>
+
+<hr>
+
+<p>
+  Travis Borsa
+</p>
+<img src=3D"https://mandrillapp.com/track/open.php?u=3D30244704&id=3D3d1db2=
+be929f4f9d8100c6873eb36632" height=3D"1" width=3D"1"></body></html>
+
+
+
+--_av-E5XtyxUStCLK-R8qVkwEeA--
+
