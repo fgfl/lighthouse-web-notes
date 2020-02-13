@@ -41,3 +41,8 @@ This repositrory contains all of the notes taken by [Frederick](https://github.c
   - [Day 2](/Week_8/Day_2)
   - [Day 3](/Week_8/Day_3)
   - [Day 4](/Week_8/Day_4)
+- [Week 10](/Week_10)
+  - [Day 1](/Week_10/Day_1)
+  - [Day 2](/Week_10/Day_2)
+  - [Day 3](/Week_10/Day_3)
+  - [Day 4](/Week_10/Day_4)
